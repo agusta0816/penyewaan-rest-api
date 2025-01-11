@@ -1,25 +1,13 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity()
-export class Paket extends BaseEntity {
+export class SatuanUnit extends BaseEntity {
 
 	@PrimaryGeneratedColumn('uuid')
-	id: string;
-
-	@Column({nullable: false, length: 255, unique: true})
-	paket_kode: string;
-
-	@Column({nullable: false, length: 255})
-	paket_name: string;
-
-	@Column({nullable: true, length: 255})
-	sub_paket_name: string;
+	id:string;
 
 	@Column({nullable: false})
-	product_id: string;
-
-	@Column({nullable: false})
-	category_id: string;
+	satuan:string;
 
 	@Column({nullable: false})
 	Company_id: string;
@@ -29,5 +17,4 @@ export class Paket extends BaseEntity {
 
 	@CreateDateColumn({type: 'timestamp', default: () => "CURRENT_TIMESTAMP(6)"})
 	createdAt: Date;
-
 }

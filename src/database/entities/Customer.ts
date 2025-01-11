@@ -1,7 +1,14 @@
-import {Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn} from "typeorm";
+import {
+	Entity,
+	BaseEntity,
+	PrimaryGeneratedColumn,
+	Column,
+	CreateDateColumn
+} from "typeorm";
 
 @Entity()
 export class Customer extends BaseEntity {
+
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 
@@ -19,4 +26,5 @@ export class Customer extends BaseEntity {
 
 	@CreateDateColumn({type: 'timestamp', default: () => "CURRENT_TIMESTAMP(6)"})
 	createdAt: Date;
+
 }

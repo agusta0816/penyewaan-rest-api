@@ -1,4 +1,12 @@
-import {Entity, BaseEntity, PrimaryGeneratedColumn, ManyToMany, JoinTable, Column, CreateDateColumn} from "typeorm";
+import {
+	Entity,
+	BaseEntity,
+	PrimaryGeneratedColumn,
+	ManyToMany,
+	JoinTable,
+	Column,
+	CreateDateColumn
+} from "typeorm";
 import {User} from "./User.js";
 import {Permission} from "./Permission.js";
 

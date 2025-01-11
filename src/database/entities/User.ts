@@ -8,11 +8,12 @@ import {
 	JoinColumn,
 	JoinTable,
 	ManyToMany,
-	OneToOne
+	OneToOne, ManyToOne
 } from "typeorm"
 import * as bcrypt from "bcrypt"
 import {Role} from "./Role.js";
 import {Customer} from "./Customer.js";
+import {Companies} from "./Companies.js";
 
 @Entity()
 export class User extends BaseEntity {
@@ -41,7 +42,11 @@ export class User extends BaseEntity {
 
 	@OneToOne(() => Customer, {cascade: true, onDelete: "CASCADE", nullable: true})
 	@JoinColumn()
-	profile: Customer
+	customer: Customer
+
+	@ManyToOne(() => Companies, {cascade: true, onDelete: "CASCADE", nullable: true})
+	@JoinColumn()
+	company: Companies
 
 	@Column({default: "user", type: 'enum', enum: ['admin', 'user', 'owner']})
 	type: "admin" | "user" | "owner"

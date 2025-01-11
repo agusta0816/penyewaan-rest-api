@@ -36,7 +36,7 @@ const createUser = async (payload: NSUser.Item) => {
 		const newUser = User.create(payload);
 		const [roles] = await Promise.all([Role.find({where: {name: newUser?.type || 'user'}})])
 		newUser.roles = roles;
-		newUser.profile = profile;
+		newUser.customer = profile;
 		await transaction.save(newUser);
 	});
 };
