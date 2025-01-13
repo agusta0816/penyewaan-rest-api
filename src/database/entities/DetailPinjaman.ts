@@ -3,11 +3,11 @@ import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 @Entity()
 export class DetailPinjaman extends BaseEntity {
 
-	@PrimaryGeneratedColumn('increment')
-	id: bigint;
+	@PrimaryGeneratedColumn('increment', {type: 'bigint'})
+	id: number;
 
 	@Column({nullable: false})
-	pinjaman_id: bigint;
+	pinjaman_id: number;
 
 	@Column({nullable: false})
 	product_id: string;

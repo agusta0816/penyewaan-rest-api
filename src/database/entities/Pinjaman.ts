@@ -3,8 +3,8 @@ import {BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} fr
 @Entity()
 export class Pinjaman extends BaseEntity {
 
-	@PrimaryGeneratedColumn('increment')
-	id: bigint;
+	@PrimaryGeneratedColumn('increment', {type: 'bigint'})
+	id: number;
 
 	@Column({nullable: false, unique: true})
 	pinjam_kode: string;

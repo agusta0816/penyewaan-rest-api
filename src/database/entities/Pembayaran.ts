@@ -3,14 +3,14 @@ import {BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} fr
 @Entity()
 export class Pembayaran extends BaseEntity {
 
-	@PrimaryGeneratedColumn('increment')
-	id: bigint;
+	@PrimaryGeneratedColumn('increment', {type: 'bigint'})
+	id: number;
 
 	@Column({nullable: false, unique: true})
 	kode_transaksi: string;
 
 	@Column({nullable: false})
-	pinjaman_id: bigint;
+	pinjaman_id: number;
 
 	@Column({default: "gagal", type: 'enum', enum: ['sukses', 'gagal']})
 	status_pembayaran: 'sukses' | 'gagal';

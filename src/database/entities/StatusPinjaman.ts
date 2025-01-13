@@ -3,11 +3,11 @@ import {BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} fr
 @Entity()
 export class StatusPinjaman extends BaseEntity {
 
-	@PrimaryGeneratedColumn('increment')
-	id: bigint;
+	@PrimaryGeneratedColumn('increment', {type: 'bigint'})
+	id: number;
 
 	@Column({nullable: false})
-	pinjaman_id: bigint;
+	pinjaman_id: number;
 
 	@Column({default: "in-progress", type: 'enum', enum: ['in-progress', 'payment-received', 'payment-failed', 'confirmed', 'in-delivery', 'completed', 'canceled', 'closed']})
 	status_order: 'in-progress' | 'payment-received' | 'payment-failed' | 'confirmed' | 'in-delivery' | 'completed' | 'canceled' | 'closed';

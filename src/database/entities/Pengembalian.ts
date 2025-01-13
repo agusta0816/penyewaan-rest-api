@@ -3,11 +3,11 @@ import {BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} fr
 @Entity()
 export class Pengembalian extends BaseEntity {
 
-	@PrimaryGeneratedColumn('increment')
-	id: bigint;
+	@PrimaryGeneratedColumn('increment', {type: 'bigint'})
+	id: number;
 
 	@Column({nullable: false, unique: true})
-	pinjaman_id: bigint;
+	pinjaman_id: number;
 
 	@Column({nullable: false, unique: true})
 	pengembalian_kode: string;
