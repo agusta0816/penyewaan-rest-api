@@ -22,7 +22,7 @@ export class Paket extends BaseEntity {
 	category_id: string;
 
 	@Column({nullable: false})
-	Company_id: string;
+	company_id: string;
 
 	@Column({default: false})
 	is_deleted: boolean;

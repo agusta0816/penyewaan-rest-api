@@ -11,11 +11,11 @@ export class Categories extends BaseEntity{
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 
-	@Column()
+	@Column({nullable: false})
 	category_name: string;
 
 	@Column({nullable: false})
-	Company_id: string;
+	company_id: string;
 
 	@Column({default: false})
 	is_deleted: boolean;

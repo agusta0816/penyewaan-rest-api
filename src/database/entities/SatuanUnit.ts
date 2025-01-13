@@ -10,7 +10,7 @@ export class SatuanUnit extends BaseEntity {
 	satuan:string;
 
 	@Column({nullable: false})
-	Company_id: string;
+	company_id: string;
 
 	@Column({default: false})
 	is_deleted: boolean;

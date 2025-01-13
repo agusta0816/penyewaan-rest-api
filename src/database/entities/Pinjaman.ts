@@ -18,22 +18,22 @@ export class Pinjaman extends BaseEntity {
 	@Column({nullable: false})
 	company_id: string;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	total_order: number;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	total_ppn: number;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	diskon: number;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	total_diskon: number;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	biaya_pengiriman: number;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	grand_total: number;
 
 	@Column({default: "in-progress", type: 'enum', enum: ['in-progress', 'payment-received', 'payment-failed', 'confirmed', 'in-delivery', 'completed', 'canceled', 'closed']})

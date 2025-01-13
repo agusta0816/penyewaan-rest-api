@@ -18,7 +18,7 @@ export class HargaSewa extends BaseEntity {
 	@Column({nullable: false})
 	satuan_id:string;
 
-	@Column({default: 0})
+	@Column({nullable: false})
 	harga: number;
 
 	@Column({default: false})

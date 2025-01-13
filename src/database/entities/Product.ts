@@ -18,7 +18,7 @@ export class Product extends BaseEntity {
 	category_id: string;
 
 	@Column({nullable: false})
-	Company_id: string;
+	company_id: string;
 
 	@Column({nullable: false, length: 255})
 	product_name: string;

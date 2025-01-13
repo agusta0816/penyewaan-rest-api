@@ -12,12 +12,11 @@ export namespace NSUser {
 		owner = "owner"
 	}
 
-
 	export interface Item {
 		id?: string;
 		name: string;
-		email: string;
 		password: string;
+		email: string;
 		createdAt?: Date;
 		dateOfBirth?: Date;
 		status?: Type,

@@ -18,19 +18,19 @@ export class DetailPinjaman extends BaseEntity {
 	@Column({default: "product", type: 'enum', enum: ['product', 'paket']})
 	type: "product" | "paket"
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	harga: number;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	diskon: number;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	tax: number;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	komisi: number;
 
-	@Column({nullable: false, default: 0})
+	@Column({nullable: false})
 	total: number;
 
 }
