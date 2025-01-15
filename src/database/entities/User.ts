@@ -36,6 +36,9 @@ export class User extends BaseEntity {
 	@Column({nullable: false, unique: true})
 	email: string;
 
+	@Column({nullable: false, unique: true})
+	phone: string;
+
 	@ManyToMany(() => Role, role => role.users, {cascade: true, onDelete: "CASCADE", onUpdate: "CASCADE"})
 	@JoinTable()
 	roles: Role[]
@@ -53,5 +56,11 @@ export class User extends BaseEntity {
 
 	@CreateDateColumn({type: 'timestamp', default: () => "CURRENT_TIMESTAMP(6)"})
 	createdAt: Date;
+
+	@Column({default: false})
+	is_active: boolean;
+
+	@Column({nullable: true, type: 'timestamp'})
+	deleteDate: Date;
 
 }

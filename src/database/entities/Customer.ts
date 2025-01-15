@@ -12,6 +12,9 @@ export class Customer extends BaseEntity {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 
+	@Column({nullable: false, unique: true})
+	customerKode: string
+
 	@Column({nullable: false, length: 255})
 	firstName: string
 
@@ -26,5 +29,11 @@ export class Customer extends BaseEntity {
 
 	@CreateDateColumn({type: 'timestamp', default: () => "CURRENT_TIMESTAMP(6)"})
 	createdAt: Date;
+
+	@Column({default: false})
+	isDeleted: boolean;
+
+	@Column({nullable: true, type: 'timestamp'})
+	deleteDate: Date;
 
 }

@@ -17,9 +17,19 @@ export namespace NSUser {
 		name: string;
 		password: string;
 		email: string;
+		phone: string;
 		createdAt?: Date;
 		dateOfBirth?: Date;
 		status?: Type,
 		type?: TypeUser
+	}
+
+	export interface EditItemCustomer {
+		id: string;
+		customerKode: string;
+		name: string;
+		dateOfBirth: Date;
+		email: string;
+		phone: string;
 	}
 }
