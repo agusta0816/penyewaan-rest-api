@@ -8,7 +8,7 @@ import {User} from '../database/entities/User.js';
 
 const router = express.Router();
 
-router.post('/', validateUser, (req, res, next) => {
+router.post('/', authenticate, authorize("ADD_user"), validateUser, (req, res, next) => {
 	createUser(req.body).then(() => {
 		res.status(201).send("User created successfully!!")
 	}).catch(err => {
