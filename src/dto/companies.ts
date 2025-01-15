@@ -5,8 +5,9 @@ export namespace NSCompanies {
         InActive = 'in-active'
     }
 
-    export interface ICompanies {
+    export interface Item {
         id: string;
+        company_kode?: string;
         company_name: string;
         email: string;
         phone: string;

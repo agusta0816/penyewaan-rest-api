@@ -5,11 +5,16 @@ import {
 	PrimaryGeneratedColumn
 } from "typeorm";
 
+const { randomCode } = require('crypto')
+
 @Entity()
 export class Companies extends BaseEntity {
 
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
+
+	@Column({default: randomCode(0, 10), unique: true})
+	company_kode: string;
 
 	@Column()
 	company_name: string;

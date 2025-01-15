@@ -1,5 +1,5 @@
 import express from 'express';
-import {NSPermission} from '../../types/permission.js';
+import {NSPermission} from '../../dto/permission.js';
 import {User} from '../../database/entities/User.js';
 
 const authorize = (api: string) => {

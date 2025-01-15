@@ -6,6 +6,8 @@ import userRouter from './src/routes/user.js'
 import permissionRouter from './src/routes/permission.js'
 import roleRouter from './src/routes/role.js'
 import {authenticate} from './src/middlewares/auth/authenticate.js';
+import categoriesRouter from './src/routes/categories.js';
+import companiesRouter from './src/routes/companies.js';
 
 const app = express()
 const PORT = process.env.PORT || 3000;
@@ -22,6 +24,8 @@ app.use(express.json());
 app.use('/user', authenticate, userRouter);
 app.use('/permission', authenticate, permissionRouter);
 app.use('/role', authenticate, roleRouter);
+app.use('/categories', authenticate, categoriesRouter);
+app.use('/companies', authenticate, companiesRouter);
 
 app.listen(PORT, () => {
 	dataSource.initialize().then(() => {

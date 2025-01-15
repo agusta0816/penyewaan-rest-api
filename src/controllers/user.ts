@@ -2,7 +2,7 @@ import dataSource from "../database/data-source.js";
 import {Customer} from "../database/entities/Customer.js";
 import {Role} from "../database/entities/Role.js";
 import {User} from "../database/entities/User.js";
-import {NSUser} from "../types/user.js";
+import {NSUser} from "../dto/user.js";
 import jwt from 'jsonwebtoken';
 import {In} from 'typeorm';
 
@@ -26,24 +26,27 @@ const login = async (email: string, name: string) => {
 const createUser = async (payload: NSUser.Item) => {
 	return dataSource.manager.transaction(async (transaction) => {
 		const [firstName, ...lastName] = payload.name.split(" ")
-		const profile = Customer.create({
+		const customer = Customer.create({
 			firstName,
 			lastName: lastName.join(" "),
 			dateOfBirth: payload.dateOfBirth || '',
 			status: payload?.status
 		})
-		await transaction.save(profile)
+
+		await transaction.save(customer)
 		const newUser = User.create(payload);
 		const [roles] = await Promise.all([Role.find({where: {name: newUser?.type || 'user'}})])
 		newUser.roles = roles;
-		newUser.customer = profile;
+		newUser.customer = customer;
 		await transaction.save(newUser);
 	});
 };
 
-
 const getUser = (payload: { id: string }) => {
-	return User.findOne({where: {id: payload.id}, relations: ["roles", "roles.permissions"]})
+	return User.findOne({
+		where: {id: payload.id}, 
+		relations: ["roles", "roles.permissions"]
+	})
 }
 
 const getUsers = async (payload: {
@@ -79,7 +82,6 @@ const getUsers = async (payload: {
 	}
 
 	console.log(permissions);
-
 
 	const [users, total] = await User.findAndCount({
 		skip: pageSize * (page - 1),

@@ -1,5 +1,5 @@
 import {Permission} from "../database/entities/Permission.js"
-import {NSPermission} from "../types/permission.js"
+import {NSPermission} from "../dto/permission.js"
 
 const creatPermission = async (payload: NSPermission.Item) => {
 	const newPermission = Permission.create(payload)

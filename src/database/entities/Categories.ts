@@ -5,11 +5,16 @@ import {
 	PrimaryGeneratedColumn
 } from "typeorm";
 
+const { randomCode } = require('crypto')
+
 @Entity()
 export class Categories extends BaseEntity{
 
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
+
+	@Column({default: randomCode(0, 10), unique: true})
+	category_kode: string;
 
 	@Column({nullable: false})
 	category_name: string;
@@ -19,5 +24,4 @@ export class Categories extends BaseEntity{
 
 	@Column({default: false})
 	is_deleted: boolean;
-	
 }

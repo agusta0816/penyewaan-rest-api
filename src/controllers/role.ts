@@ -1,4 +1,4 @@
-import {NSRole} from "../types/role.js"
+import {NSRole} from "../dto/role.js"
 import {In} from "typeorm"
 import {Permission} from "../database/entities/Permission.js";
 import {Role} from "../database/entities/Role.js";
